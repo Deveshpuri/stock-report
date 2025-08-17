@@ -1,7 +1,6 @@
 requests
 gspread
 google-auth
-concurrent.futures
 pytz
 yfinance
 pandas
