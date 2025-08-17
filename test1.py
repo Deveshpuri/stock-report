@@ -96,7 +96,7 @@ try:
     logger.info("Opened Calculation sheet")
 except gspread.WorksheetNotFound:
     calc_sheet = workbook.add_worksheet(title='Calculation', rows=100, cols=15)
-    calc_sheet.update('A1:O1', [headers])
+    calc_sheet.update(values=[headers], range_name='A1:O1')
     logger.info("Created Calculation sheet and set headers")
 
 # Manual RSI calculation
@@ -189,7 +189,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:  # Reduced to 10 to avoid r
 # Update Calculation sheet
 if batch_data:
     try:
-        calc_sheet.update(f'B{start_row}:P{start_row + len(batch_data) - 1}', batch_data)
+        calc_sheet.update(values=batch_data, range_name=f'B{start_row}:P{start_row + len(batch_data) - 1}')
         logger.info(f"Updated Calculation sheet with {len(batch_data)} rows")
         
         time.sleep(3)  # Wait for the update to complete
@@ -217,7 +217,7 @@ except Exception as e:
 
 # Display fetched sheet data before email preparation in a professional format
 print("\n" + "-"*60)
-print("Sheet Data Summary (Before Email Preparation).".center(60))
+print("Sheet Data Summary (Before Email Preparation)".center(60))
 print("-"*60)
 if swing_stock_data:
     print("Swing Stock Data:")
@@ -262,16 +262,16 @@ html_body_template = """
 <html>
   <head>
     <style>
-      body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.6; background-color: #f4f4f4; margin: 0; padding: 20px; }
-      .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-      h3 { color: #2c3e50; margin-top: 30px; border-bottom: 2px solid #007bff; padding-bottom: 8px; }
-      p { margin: 10px 0; }
-      table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-      ul { list-style: none; padding: 0; }
-      .download-btn { display: inline-block; padding: 12px 24px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s, transform 0.2s; }
-      .download-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
-      .footer { margin-top: 30px; text-align: center; color: #6c757d; font-size: 0.9em; }
-      @media (max-width: 600px) { .container { padding: 15px; } table { font-size: 0.9em; } }
+      body {{ font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.6; background-color: #f4f4f4; margin: 0; padding: 20px; }}
+      .container {{ max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }}
+      h3 {{ color: #2c3e50; margin-top: 30px; border-bottom: 2px solid #007bff; padding-bottom: 8px; }}
+      p {{ margin: 10px 0; }}
+      table {{ border-collapse: collapse; width: 100%; margin-bottom: 20px; }}
+      ul {{ list-style: none; padding: 0; }}
+      .download-btn {{ display: inline-block; padding: 12px 24px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s, transform 0.2s; }}
+      .download-btn:hover {{ background-color: #0056b3; transform: translateY(-2px); }}
+      .footer {{ margin-top: 30px; text-align: center; color: #6c757d; font-size: 0.9em; }}
+      @media (max-width: 600px) {{ .container {{ padding: 15px; }} table {{ font-size: 0.9em; }} }}
     </style>
   </head>
   <body>
@@ -344,8 +344,8 @@ print(f"Swing_stock stock names: {', '.join(swing_stock_names)}")
 
 # Refresh Google Sheet
 response = requests.get(macro_url)
-print("Google Sheet refreshed successfully..")
+print("Google Sheet refreshed successfully.")
 
 # Log completion
 elapsed_time = time.time() - start_time
-logger.info(f"Sent {emails_sent} emails successfully. Parocess completed in {elapsed_time:.2f} seconds.")
+logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
