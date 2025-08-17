@@ -217,7 +217,7 @@ except Exception as e:
 
 # Display fetched sheet data before email preparation in a professional format
 print("\n" + "-"*60)
-print("Sheet Data Summary (Before Email Preparation)".center(60))
+print("Sheet Data Summary (Before Email Preparation).".center(60))
 print("-"*60)
 if swing_stock_data:
     print("Swing Stock Data:")
