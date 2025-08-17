@@ -344,7 +344,7 @@ print(f"Swing_stock stock names: {', '.join(swing_stock_names)}")
 
 # Refresh Google Sheet
 response = requests.get(macro_url)
-print("Google Sheet refreshed successfully.")
+print("Google Sheet refreshed successfully..")
 
 # Log completion
 elapsed_time = time.time() - start_time
