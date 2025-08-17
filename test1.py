@@ -176,6 +176,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:  # Reduced to 10 to avoid r
         future = executor.submit(get_stock_data, f"{symbol}.NS")
         future_to_symbol[future] = symbol
         time.sleep(0.1)  # Increased delay to avoid rate limits
+        print(f"Fetching data for {symbol}...")
     for future in as_completed(future_to_symbol):
         try:
             data, symbol = future.result()
