@@ -176,7 +176,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:  # Reduced to 10 to avoid r
         future = executor.submit(get_stock_data, f"{symbol}.NS")
         future_to_symbol[future] = symbol
         time.sleep(0.1)  # Increased delay to avoid rate limits
-        print(f"Fetching data for {symbol}...")
+        #print(f"Fetching data for {symbol}...")
     for future in as_completed(future_to_symbol):
         try:
             data, symbol = future.result()
@@ -350,6 +350,7 @@ print("Google Sheet refreshed successfully.")
 # Log completion
 elapsed_time = time.time() - start_time
 logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
+
 
 for remaining in range(60, 0, -1):
     print(f"Time remaining: {remaining} seconds", end="\r")
