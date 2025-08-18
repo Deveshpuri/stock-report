@@ -27,7 +27,7 @@ start_time = time.time()
 logger.info("Starting stock report script...")
 
 # Step 1: Execute Google Apps Script macro twice with a 4-second pause
-macro_url = "https://script.google.com/macros/s/AKfycbxwqDh0Bktqfz_1xfWeh8BMx8f60pftKfsHKhnN-MF-J5nNJFO1c94KmxjUapc-G_8/exec"
+macro_url = "https://script.google.com/macros/s/AKfycbxhQaMwCqxL6m-RkjtIzm-bjz1Q3YiI4kEiI0_5TLaXBbGxLDHrKnW5FJIA-_8CR8DFCw/exec"
 logger.info("Executing first Google Apps Script macro...")
 try:
     response = requests.get(macro_url)
@@ -353,8 +353,15 @@ logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elap
 
 
 for remaining in range(60, 0, -1):
-    print(f"Time remaining: {remaining} seconds", end="\r")
+    print(f"Time remaining: {remaining} seconds", end="\r", flush=True)
     time.sleep(1)
 
-print("\nTime lag: 60 seconds")
+print("Time lag: 60 seconds")
+requests.get(macro_url)
+
+for remaining in range(60, 0, -1):
+    print(f"Time remaining: {remaining} seconds", end="\r", flush=True)
+    time.sleep(1)
+
+print("Time lag: 60 seconds again")
 requests.get(macro_url)
