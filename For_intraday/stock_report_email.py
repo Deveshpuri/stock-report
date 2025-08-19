@@ -4,7 +4,6 @@ import time
 import smtplib
 from email.mime.text import MIMEText
 import gspread
-
 from google.oauth2.service_account import Credentials
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
