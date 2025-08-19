@@ -1,69 +1,95 @@
-📊 Stock Report Automation
+# 📊 Stock Report Automation
 
-Hi, I’m Deveshpuri Goswami 👋
+**Deveshpuri Goswami** 👋  
 
-This project is an automated stock reporting system that runs daily using GitHub Actions. It fetches stock data, performs calculations, updates Google Sheets, and sends professional HTML email reports.
+Automate daily stock reporting with Python, Google Sheets, and GitHub Actions.  
+This project fetches stock data, computes technical indicators, updates a Google Sheet, and emails sleek HTML reports—all on autopilot.
 
-🚀 Features
+---
 
-⏳ Automated Schedule – Runs daily at 9:00 AM IST via GitHub Actions.
+## 🚀 Features
 
-📈 Stock Analysis – Calculates SMA(200), ADX(14), RSI(14), Volume SMA, and trading conditions.
+- ⏰ **Daily Automation**  
+  Runs every day at **9:00 AM IST / 03:30 UTC**, orchestrated via GitHub Actions.
 
-📊 Google Sheets Integration – Reads stock symbols, updates calculation sheet, and refreshes via Apps Script.
+- 📈 **Technical Calculations**  
+  - SMA(200)  
+  - RSI(14)  
+  - ADX(14)  
+  - Volume SMA(20)  
+  - Smart trading signals (e.g., Close > SMA, RSI > 40)
 
-📧 Email Reports – Sends a styled HTML report with stock data and download link to all recipients from the sheet.
+- 📊 **Google Sheets Integration**  
+  Reads ticker symbols, updates a “Calculation” sheet, and refreshes using Apps Script.
 
-⚡ Parallel Processing – Uses multi-threading for faster stock data fetch.
+- 📧 **HTML Email Reports**  
+  Stylishly formatted report including:  
+  - Swing stock data  
+  - High-break alerts  
+  - Download link for Excel export  
 
-🛠️ Tech Stack
+- ⚡ **Efficient Workflow**  
+  Stock data fetched in parallel for speed, plus robust logging and error handling.
 
-Python (3.12)
+---
 
-yfinance, pandas, numpy – Stock data & indicators
+## 🛠️ Tech Stack
 
-gspread, Google Sheets API – Spreadsheet integration
+- **Python 3.12**  
+- Core libraries:  
+  - `yfinance`, `pandas`, `numpy` – financial data & indicator computations  
+  - `gspread`, `google-auth` – interfacing with Google Sheets  
+  - `smtplib`, `email` – sending emails via Gmail  
+- **GitHub Actions** for automation and CI/CD  
 
-smtplib – Email sending via Gmail
+---
 
-GitHub Actions – CI/CD automation
+## 📂 Workflow Overview
 
-📂 How It Works
+1. Trigger Google Apps Script to refresh data  
+2. Load stock symbols from Google Sheets  
+3. Fetch 1-year historical data via Yahoo Finance  
+4. Calculate indicators (SMA, RSI, ADX, volume, etc.)  
+5. Update “Calculation” tab in the Sheet  
+6. Gather swing trade and high-break data from other sheets  
+7. Craft an HTML email template  
+8. Send emails to addresses listed in the sheet  
 
-Refreshes Google Sheet using Google Apps Script.
+---
 
-Fetches stock symbols from Sheet1.
+## ⚙️ Setup Instructions
 
-Computes indicators (SMA200, RSI14, ADX14, etc.).
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/Deveshpuri/stock-report.git
+   cd stock-report
+   ```
 
-Updates results in Calculation sheet.
+2. **Add GitHub Secrets**  
+   - `GOOGLE_CREDENTIALS_JSON` – your service account JSON  
+   - `SMTP_USERNAME` – Gmail username  
+   - `SMTP_PASSWORD` – Gmail app-specific password  
 
-Collects swing trade data from other sheets.
+3. **Install Dependencies**  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Builds a professional HTML email report.
+4. **Run Locally (Optional)**  
+   ```bash
+   python test1.py
+   ```
 
-Sends emails to all recipients in credential sheet.
+---
 
-⚙️ Setup
+## 📅 Schedule
 
-Clone this repo.
+This workflow runs daily at:  
+**09:00 AM IST / 03:30 AM UTC** — configured via GitHub Actions cron schedule.
 
-Add required secrets in GitHub:
+---
 
-GOOGLE_CREDENTIALS_JSON
+## ✨ Author
 
-SMTP_USERNAME
-
-SMTP_PASSWORD
-
-Push changes – GitHub Actions will automatically run the workflow.
-
-📅 Schedule
-
-The workflow runs every day at:
-🕘 09:00 AM IST (03:30 AM UTC)
-
-✨ Author
-
-👨‍💻 Deveshpuri Goswami
-Automating stock reports with Python + Google Sheets + GitHub Actions.
+**Deveshpuri Goswami**  
+Automating stock insights daily with Python, Google Sheets, and GitHub Actions 🚀
