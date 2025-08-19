@@ -2,7 +2,7 @@ name: Run Stock Report Script
 
 on:
   schedule:
-    - cron: "38 3 * * *"   # Runs at 03:38 UTC = 09:08 IST  #3:47 AM UTC = 9:17 AM IST OR  3:37 AM UTC = 9:07 AM IST OR 3:45 AM UTC = 9:15 AM IST 
+    - cron: "30 3 * * *"   # Runs at 03:38 UTC = 09:08 IST  #3:47 AM UTC = 9:17 AM IST OR  3:37 AM UTC = 9:07 AM IST OR 3:45 AM UTC = 9:15 AM IST 
   workflow_dispatch:
 
 jobs:
