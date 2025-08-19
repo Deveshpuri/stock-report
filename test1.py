@@ -351,6 +351,7 @@ print("Google Sheet refreshed successfully.")
 # Log completion
 elapsed_time = time.time() - start_time
 logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
+print(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
 
 print("Time lag: 60 seconds")
 time.sleep(60)  
