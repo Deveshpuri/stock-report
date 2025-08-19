@@ -352,17 +352,10 @@ print("Google Sheet refreshed successfully.")
 elapsed_time = time.time() - start_time
 logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
 
-
-for remaining in range(60, 0, -1):
-    print(f"Time remaining: {remaining} seconds", end="\r", flush=True)
-    time.sleep(1)
-
 print("Time lag: 60 seconds")
+time.sleep(60)  
 requests.get(macro_url)
 
-for remaining in range(60, 0, -1):
-    print(f"Time remaining: {remaining} seconds", end="\r", flush=True)
-    time.sleep(1)
-
 print("Time lag: 60 seconds again")
+time.sleep(60)  
 requests.get(macro_url)
