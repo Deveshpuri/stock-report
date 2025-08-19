@@ -178,7 +178,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:  # Reduced to 10 to avoid r
         future_to_symbol[future] = symbol
         time.sleep(0.1)  # Increased delay to avoid rate limits
         A+= 1
-        print(f"Fetching data for {A} done...", end="\r", flush=True)
+        print(f"Fetching data for {symbol} ({A}/{len(stock_symbols)}) done...", end="\r", flush=True)
     for future in as_completed(future_to_symbol):
         try:
             data, symbol = future.result()
