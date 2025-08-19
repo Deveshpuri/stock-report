@@ -28,7 +28,7 @@ logger.info("Starting stock report script...")
 
 
 # Step 1: Execute Google Apps Script macro twice with a 4-second pause
-macro_url = "https://script.google.com/macros/s/AKfycbxhQaMwCqxL6m-RkjtIzm-bjz1Q3YiI4kEiI0_5TLaXBbGxLDHrKnW5FJIA-_8CR8DFCw/exec"
+macro_url = ""
 logger.info("Executing first Google Apps Script macro...")
 try:
     response = requests.get(macro_url)
