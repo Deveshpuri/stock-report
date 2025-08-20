@@ -74,7 +74,7 @@ sheet_id = '1ZYa5e92hmTc27KYSLKJyx_zvYydR5b1jMk7dYIqFsss'
 workbook = client.open_by_key(sheet_id)
 
 
-
+print("waiting for 9:21 to find breaking stocks")
 time.sleep(60)  #insted of exact 9:20 AM run at 9:21 for sending the email 
 
 #waitoing for 1m
@@ -220,7 +220,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
 
 # Wait 3 minutes until 9:23 AM IST
 print("\nWaiting until 9:23 AM IST to refresh Google Sheet again...\n")
-time.sleep(180)
+time.sleep(120)
 
 # Execute the Google Apps Script macro again (third refresh at 9:23 AM)
 execute_macro_with_retry(macro_url)
