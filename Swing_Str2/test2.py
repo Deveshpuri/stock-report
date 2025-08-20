@@ -239,8 +239,8 @@ with ThreadPoolExecutor(max_workers=12) as executor:
             data, symbol = future.result()
             if data:
                 batch_data.append(data)
-            # else:
-            #     print(f"No valid data returned for {symbol}")
+            else:
+                print(f"No valid data returned for {symbol}")
         except Exception as e:
             print(f"Error processing result for {future_to_symbol[future]}: {e}")
 
@@ -260,9 +260,9 @@ target_time_ist_1 = current_time_ist.replace(hour=9, minute=25, second=0, micros
 if current_time_ist < target_time_ist_1:
     wait_seconds = (target_time_ist_1 - current_time_ist).total_seconds()
     print(f"Waiting {wait_seconds:.0f} seconds until 9:25 AM IST to refresh Google Sheet...")
-    # for i in range(int(wait_seconds), 0, -1):
-    #     print(f"Waiting... {i} seconds remaining", end='\r')
-    #     time.sleep(1)
+    for i in range(int(wait_seconds), 0, -1):
+        print(f"Waiting... {i} seconds remaining", end='\r')
+        time.sleep(1)
 
 # Fetch data from swing_stock just before sending email
 try:
