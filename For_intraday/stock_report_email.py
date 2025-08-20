@@ -73,6 +73,13 @@ except Exception as e:
 sheet_id = '1ZYa5e92hmTc27KYSLKJyx_zvYydR5b1jMk7dYIqFsss'
 workbook = client.open_by_key(sheet_id)
 
+
+
+time.sleep(60)  #insted of exact 9:20 AM run at 9:21 for sending the email 
+
+#waitoing for 1m
+
+ 
 # Fetch data from both sheets
 high_break_trade_sheet = workbook.worksheet('high_break_trade')
 onetime_five_open_sheet = workbook.worksheet('onetime_five_open')
