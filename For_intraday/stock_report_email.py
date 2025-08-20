@@ -106,7 +106,7 @@ compare_sheet.batch_clear(['B4:E', 'G4:J'])
 print("Cleared existing data from B4:E and G4:J in compare sheet at 9:21 AM IST.")
 
 # Write new stock names to column B
-compare_sheet.update(range_name='B4', values=[[stock] for stock in stock_names_920])  # Write to B4 downward
+compare_sheet.update(range_name='B4', values=[[stock] for stock in stock_names_920])  # Write t0o B4 downward
 print(f"Wrote {num_stocks_920} stocks to column B at 9:20 AM IST.")
 
 # Generate and write formulas row-by-row for 9:20 AM data
