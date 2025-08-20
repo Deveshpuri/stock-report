@@ -42,7 +42,7 @@ if current_time_ist < target_time_ist_1:
     time.sleep(wait_seconds)
 
 # Execute the Google Apps Script macro (first refresh)
-macro_url = "https://script.google.com/macros/s/AKfycbxGVZ_OJviGVLR4_-JXEoJjTwXobvm6wX0uV_HXOVLwNQkoY49JWphXhrOrcI0ySiYw/exec"
+macro_url = "https://script.google.com/macros/s/AKfycbwkJqNZI6FCkozCQ5GusMXWttwsEMnzp02cWQcbJ9dRIWidBLS_ok0b71cUViDfxsJv/exec"
 execute_macro_with_retry(macro_url)
 print("First Google Sheet refresh completed at 9:15 AM IST.")
 
