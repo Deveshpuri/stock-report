@@ -117,7 +117,7 @@ compare_sheet.update(range_name='C4:C' + str(3 + num_stocks_920), values=[[formu
 compare_sheet.update(range_name='D4:D' + str(3 + num_stocks_920), values=[[formula] for formula in d_formulas], value_input_option='USER_ENTERED')
 compare_sheet.update(range_name='E4:E' + str(3 + num_stocks_920), values=[[formula] for formula in e_formulas], value_input_option='USER_ENTERED')
 
-time.sleep(10)  # Increased sleep to allow GOOGLEFINANCE to fetch data
+time.sleep(10)  # Increased sleep to allow GOOGLEFINANCE  to fetch data
 
 # Build HTML table/grid
 high_break_headers = ''.join(f'<th style="padding: 12px; text-align: left; font-weight: 600; background-color: #e9ecef; border: 1px solid #dee2e6; color: #343a40;">{col}</th>' for col in data_high_break[0])
