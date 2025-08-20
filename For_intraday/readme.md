@@ -3,6 +3,9 @@ Created by: Devesh Puri GoswamiDate: August 19, 2025
 This project automates the generation and emailing of stock reports using data from Google Sheets. It fetches stock data at specific times (9:15 AM, 9:20 AM, and 9:23 AM IST), updates a Google Sheet with stock prices and calculations, and sends formatted HTML emails with the data to recipients. A second email round at 10:55 AM IST includes additional orb_dhan data.
 Features
 
+herethe link of sheet for vetter understanding
+https://docs.google.com/spreadsheets/d/19JfiLy5VPfLLMMMl_k4TYF6ylXYkKQdgZd5t0boi7TA/edit?usp=sharing
+
 Executes Google Apps Script macros to refresh Google Sheet data at 9:15 AM, 9:20 AM, and 9:23 AM IST.
 Fetches stock data from high_break_trade and onetime_five_open sheets.
 Updates the compare and orb_dhan sheets with stock names and price formulas.
