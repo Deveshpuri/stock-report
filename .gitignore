@@ -1,4 +1,5 @@
 For_intraday/.env
+For_intraday/stock_report_email_credential.py
 Swing_Str2/.env
 Swing_Str2/Swing_Str2_credetial.py
 .env
