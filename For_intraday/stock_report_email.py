@@ -219,7 +219,7 @@ with ThreadPoolExecutor(max_workers=15) as executor:
     emails_sent = sum(1 for success in results if success)
 
 # Wait 3 minutes until 9:23 AM IST
-print("\nWaiting until 9:23 AM IST to refresh Google Sheet again...\n")
+print("\nWaiting until 9:23 AM IST to refresh Google Sheet again... & writing stock for colum G ub sheet (compare)\n")
 time.sleep(120)
 
 # Execute the Google Apps Script macro again (third refresh at 9:23 AM)
