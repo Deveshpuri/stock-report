@@ -103,7 +103,7 @@ num_stocks_920 = len(stock_names_920)
 
 # Flush (clear) existing data in ranges B4:E and G4:J
 compare_sheet.batch_clear(['B4:E', 'G4:J'])
-print("Cleared existing data from B4:E and G4:J in compare sheet at 9:20 AM IST.")
+print("Cleared existing data from B4:E and G4:J in compare sheet at 9:21 AM IST.")
 
 # Write new stock names to column B
 compare_sheet.update(range_name='B4', values=[[stock] for stock in stock_names_920])  # Write to B4 downward
@@ -275,7 +275,7 @@ orb_dhan_sheet.update(range_name='K4:K' + str(3 + num_stocks_923), values=[[f'=G
 # Add percentage change formula for 9:23 AM data in column L
 orb_dhan_sheet.update(range_name='L4:L' + str(3 + num_stocks_923), values=[[f'=(K{row+4}-J{row+4})/K{row+4}*100'] for row in range(num_stocks_923)], value_input_option='USER_ENTERED')
 
-print(f"Updated formulas in orb_dhan sheet for 9:20 AM and 9:23 AM data.")
+print(f"Updated formulas in orb_dhan sheet for 9:21 AM and 9:23 AM data.")
 
 # New section to send email again with high_break_trade, onetime_five_open, and orb_dhan data
 data_orb_dhan = orb_dhan_sheet.get_all_values()
@@ -296,7 +296,7 @@ high_break_rows = ''.join(
     for i, row in enumerate(data_high_break[1:])
 )
 high_break_stocks = ''.join(
-    f'<li style="padding: 10px; background-color: #fff; margin: 8px 0; border-left: 4px solid #dc3545; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">{stock} (9:20 AM)</li>'
+    f'<li style="padding: 10px; background-color: #fff; margin: 8px 0; border-left: 4px solid #dc3545; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">{stock} (9:21 AM)</li>'
     for stock in stock_names_920
 ) + ''.join(
     f'<li style="padding: 10px; background-color: #fff; margin: 8px 0; border-left: 4px solid #28a745; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">{stock} (9:23 AM)</li>'
