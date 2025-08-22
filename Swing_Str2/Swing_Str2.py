@@ -58,7 +58,7 @@ except Exception as e:
 
 # Step 2: Google Sheets authentication
 try:
-    credentials_info = json.loads(os.environ.get('GOOGLE_CREDENTIALS'))
+    credentials_info = json.loads(os.environ.get('GOOGLE_CREDENTIALS_JSON'))
     creds = Credentials.from_service_account_info(credentials_info, scopes=[
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/drive'
