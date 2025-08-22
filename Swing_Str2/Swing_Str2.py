@@ -339,7 +339,7 @@ try:
     csv_buffer.close()
     
 except Exception as e:
-    logger.error(f"Error managing swing_stock export spreadsheet: {e}")
+    logger.error(f"Error managing swing_stock export spreadsheet.. {e}")
     logger.info("Falling back to CSV attachment")
     export_url = None  # Disable export URL
     csv_data = io.StringIO()
