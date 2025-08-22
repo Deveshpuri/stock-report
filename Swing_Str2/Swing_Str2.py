@@ -284,8 +284,8 @@ try:
     
     met_stocks = []
     for row in swing_stock_data[3:]:
-        if len(row) > 10 and row[10] == "Yes":  # Check column K (index 10) for "Yes"
-            met_stocks.append(row[1])  # Using column B (index 1) for stock names
+        if len(row) > 1:  # Check column K (index 10) for "Yes"
+            met_stocks.append(row[2])  # Using column B (index 1) for stock names
     
     logger.info(f"Retrieved {len(met_stocks)} stocks meeting all conditions from swing_stock: {met_stocks[:5]}...")
     logger.info(f"Retrieved {len(recipients)} recipient emails from credential sheet: {recipients}")
@@ -486,7 +486,7 @@ logger.info(f"Sent {emails_sent} emails successfully. Process completed in {elap
 print(f"Sent {emails_sent} emails successfully. Process completed in {elapsed_time:.2f} seconds.")
 
 print("Time lag: 15 seconds")
-time.sleep(15)
+time.sleep(12)
 
 # Final refresh
 try:
