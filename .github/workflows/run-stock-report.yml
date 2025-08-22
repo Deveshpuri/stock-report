@@ -8,7 +8,7 @@ on:
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
-    timeout-minutes: 15  # Increase timeout to give scripts enough time
+    timeout-minutes: 30  # Increased timeout to 30 minutes
 
     steps:
       - name: Checkout repository
@@ -51,7 +51,7 @@ jobs:
 
       - name: Upload logs (if any)
         uses: actions/upload-artifact@v3
-        if: failure()
+        if: always()  # Upload logs regardless of success or failure
         with:
           name: script-logs
           path: |
@@ -59,4 +59,5 @@ jobs:
             swing_str2.log
 
       - name: Clean up
+        if: always()
         run: rm -f test1.log swing_str2.log
