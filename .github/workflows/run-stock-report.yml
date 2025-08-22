@@ -39,5 +39,4 @@ jobs:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SWING_STOCK_EXPORT_SHEET_ID: ${{ secrets.SWING_STOCK_EXPORT_SHEET_ID }}  # Add this if needed
         run: python Swing_Str2.py
