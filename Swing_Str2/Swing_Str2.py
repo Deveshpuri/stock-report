@@ -45,8 +45,8 @@ try:
 except Exception as e:
     logger.error(f"Error executing first macro: {e}")
 
-logger.info("Pausing for 4 seconds...")
-time.sleep(4)
+logger.info("Pausing for 2 seconds...")
+time.sleep(2)
 
 logger.info("Executing second Google Apps Script macro...")
 try:

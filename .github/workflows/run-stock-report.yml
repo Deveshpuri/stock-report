@@ -8,6 +8,7 @@ on:
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
+    timeout-minutes: 15  # Increase timeout to give scripts enough time
 
     steps:
       - name: Checkout repository
@@ -29,14 +30,33 @@ jobs:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python test1.py &
+        run: |
+          python test1.py > test1.log 2>&1
+          if [ $? -ne 0 ]; then
+            echo "test1.py failed, see test1.log for details"
+            exit 1
+          fi
 
       - name: Run Swing_Str2.py
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python Swing_Str2/Swing_Str2.py &
+        run: |
+          python Swing_Str2/Swing_Str2.py > swing_str2.log 2>&1
+          if [ $? -ne 0 ]; then
+            echo "Swing_Str2.py failed, see swing_str2.log for details"
+            exit 1
+          fi
 
-      - name: Wait for scripts to complete
-        run: wait
+      - name: Upload logs (if any)
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: script-logs
+          path: |
+            test1.log
+            swing_str2.log
+
+      - name: Clean up
+        run: rm -f test1.log swing_str2.log
