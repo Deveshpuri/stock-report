@@ -34,9 +34,10 @@ jobs:
         run: |
           pip install python-dotenv==1.0.1 scipy==1.14.1  # Additional dependencies for Swing_Str2.py
 
-      - name: Run /Swing_Str2/Swing_Str2.py
+      - name: Run Swing_Str2.py
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python Swing_Str2.py
+          
+        run: python Swing_Str2/Swing_Str2.py  # Updated path to include subdirectory
