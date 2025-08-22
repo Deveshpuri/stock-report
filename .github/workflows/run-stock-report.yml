@@ -1,4 +1,4 @@
-name: Run Stock Report Scripts
+name: Run Stock Report Script
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-scripts:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,25 +18,25 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
+      - name: Install dependencies for test1.py
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install -r Swing_Str2/requirements.txt
+          pip install -r requirements.txt  # For test1.py
 
       - name: Run test1.py
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python test1.py &
+        run: python test1.py
+
+      - name: Install additional dependencies for Swing_Str2.py
+        run: |
+          pip install python-dotenv==1.0.1 scipy==1.14.1  # Additional dependencies for Swing_Str2.py
 
       - name: Run Swing_Str2.py
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python Swing_Str2/Swing_Str2.py &
-
-      - name: Wait for scripts to complete
-        run: wait
+        run: python Swing_Str2.py
