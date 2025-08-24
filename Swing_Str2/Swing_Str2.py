@@ -254,6 +254,8 @@ if batch_data:
 else:
     logger.warning("No data to update in Calculation sheet")
 
+
+requests.get(macro_url)
 # Wait until 9:25 IST to refresh Google Sheet
 current_time_ist = datetime.now(ist)
 target_time_ist_1 = current_time_ist.replace(hour=9, minute=25, second=0, microsecond=0)
