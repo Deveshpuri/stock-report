@@ -254,8 +254,6 @@ if batch_data:
 else:
     logger.warning("No data to update in Calculation sheet")
 
-
-requests.get(macro_url)
 # Wait until 9:25 IST to refresh Google Sheet
 current_time_ist = datetime.now(ist)
 target_time_ist_1 = current_time_ist.replace(hour=9, minute=25, second=0, microsecond=0)
@@ -411,7 +409,7 @@ if not username or not password:
     logger.error("SMTP credentials not found in environment variables")
     exit(1)
     
-sender = '"SwingScan STR_2" <' + username + '>'
+sender = '"SwingScan Insights" <' + username + '>'
 
 def send_email(recipient_email, html_body, csv_data=None):
     try:
