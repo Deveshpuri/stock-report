@@ -411,7 +411,7 @@ if not username or not password:
     logger.error("SMTP credentials not found in environment variables")
     exit(1)
     
-sender = '"SwingScan Insights" <' + username + '>'
+sender = '"SwingScan STR_2" <' + username + '>'
 
 def send_email(recipient_email, html_body, csv_data=None):
     try:
