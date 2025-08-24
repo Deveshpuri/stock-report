@@ -298,7 +298,7 @@ smtp_server = 'smtp.gmail.com'
 smtp_port = 587
 username = os.environ.get('SMTP_USERNAME')
 password = os.environ.get('SMTP_PASSWORD')
-sender = '"Swing Stock Alert" <otpsender191@gmail.com>'
+sender = '"Swing Stock Alert (ORB)" <otpsender191@gmail.com>'
 
 # Send email function
 def send_email(recipient_email, html_body):
