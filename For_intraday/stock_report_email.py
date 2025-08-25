@@ -175,7 +175,7 @@ smtp_server = 'smtp.gmail.com'
 smtp_port = 587
 username = os.getenv('SMTP_USERNAME')
 password = os.getenv('SMTP_PASSWORD')
-sender = '"HighBreak (orb) <' + os.getenv('SMTP_USERNAME') + '>'
+sender = '"HighBreak (orb_future) <' + os.getenv('SMTP_USERNAME') + '>'
 generated_time = (datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)).strftime('%Y-%m-%d %H:%M:%S') + ' IST'
 
 # Send email function
