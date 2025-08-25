@@ -357,6 +357,3 @@ print("Time lag: 60 seconds")
 time.sleep(60)  
 requests.get(macro_url)
 
-print("Time lag: 60 seconds again")
-time.sleep(60)  
-requests.get(macro_url)
