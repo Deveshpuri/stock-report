@@ -184,7 +184,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:  # Reduced to 10 to avoid r
             if data:
                 batch_data.append(data)
             else:
-                logger.warning(f"No valid data returned for {symbol}")
+                print(f"No valid data returned for {symbol}")
         except Exception as e:
             logger.error(f"Error processing result for {future_to_symbol[future]}: {e}")
 
