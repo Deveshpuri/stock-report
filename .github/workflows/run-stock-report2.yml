@@ -2,7 +2,7 @@ name: Run Stock Report Script
 
 on:
   schedule:
-    - cron: "8 15 * * *"   # Runs at 15:08 UTC = 20:38 IST
+    - cron: "30 9 * * *"   # Runs at 15:08 UTC = 20:38 IST
   workflow_dispatch:
 
 jobs:
